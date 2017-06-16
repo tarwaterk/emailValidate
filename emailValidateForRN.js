@@ -42,10 +42,10 @@ var freshAddressSiteToken = undefined;
 
     switch(subDomain) {
         case "carlosshoes":
-            freshAddressSiteToken = "92a6199714fe7fcc689250047a4395608faddfe0c0e6dfbdf4dec89529587e27b5f644f38e84b592f80e536ac29f6cf8";
+            freshAddressSiteToken = "9a788c121f6414882c4221f546e229d683e0ae4629ed5fbd205814cb3f16dc2d1537a9a2a14f04560fc0600f481237da";
             break;
         case "bzees":
-            freshAddressSiteToken = "ad3313f32b0d6ebdb751a5f6ed947c25e45d46204a0cb2a27ac802fbff64f4d0";
+            freshAddressSiteToken = "9a788c121f6414882c4221f546e229d683e0ae4629ed5fbd205814cb3f16dc2d1537a9a2a14f04560fc0600f481237da";
             break;
         case "drschollsshoes":
             freshAddressSiteToken = "d9e0af18fb75120f3171290fe0aa9691582b7a505565855ed9b27aa2f79c55d05320852e943d56fca33a20218f1d1bc8";
