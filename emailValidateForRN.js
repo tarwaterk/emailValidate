@@ -45,31 +45,31 @@ var freshAddressSiteToken = undefined;
             freshAddressSiteToken = "9a788c121f6414882c4221f546e229d683e0ae4629ed5fbd205814cb3f16dc2d1537a9a2a14f04560fc0600f481237da";
             break;
         case "bzees":
-            freshAddressSiteToken = "9a788c121f6414882c4221f546e229d683e0ae4629ed5fbd205814cb3f16dc2d1537a9a2a14f04560fc0600f481237da";
+            freshAddressSiteToken = "c75801a7242935012229300c391f340be1906710d8bcc26a2b8cc09843e452bc34959c1dd598bf34004c47330171a216";
             break;
-        case "drschollsshoes":
-            freshAddressSiteToken = "d9e0af18fb75120f3171290fe0aa9691582b7a505565855ed9b27aa2f79c55d05320852e943d56fca33a20218f1d1bc8";
+        case "drschollsshoes": 
+            freshAddressSiteToken = "d9e0af18fb75120f3171290fe0aa9691582b7a505565855ed9b27aa2f79c55d05320852e943d56fca33a20218f1d1bc8"; //this is not a drschollsshoes.custhelp.com token
             break;
         case "fergieshoes":
-            freshAddressSiteToken = "cd51c4491ee9dd086d512ff10f8269ea4b4327ddba82f64cee0fd2d10f0736405d8de0ed81ba21d802ca19598c0ffb1f";
+            freshAddressSiteToken = "ad3c58305b56a5cf114e09c534c59887b89da12067d6d088a3b0e5084f9ecd1e184501c3a48f2062ae204d46acacc492";
             break;
         case "francosarto":
-            freshAddressSiteToken = "966c828940e9b1fee0434b00cd921458bcfc41458f7f035862611cb5addc9113ecc9f1b1ad50d09e6cc0b674fde1f184";
+            freshAddressSiteToken = "e4df592a10fc33ff2fbc522392299827c416f51deec8a1b2aa4f2eba92ac2bae057fc1dc3099aff70fede506ac9c9814";
             break;
         case "georgebrownbilt":
-            freshAddressSiteToken = "4908533ee9d44f0641c8d38ec311f1463a9c8eafdbf4a63db3b5a6c7f5a917290a44bbe398f62236651f8488d16b461f";
+            freshAddressSiteToken = "e01cf489c3c491fc435e790cfcacf984d0e0d7616a3f45bd5fa803a9e2d955563c0c4ea45f18fb94ade242478d8793c8";
             break;
         case "lifestride":
-            freshAddressSiteToken = "5c010df32a1ebf2e473a74db40485db7da2571281dab5d3388f14c4153a7fa5abf89f0e046fa3d26c6276464b7c186a8";
+            freshAddressSiteToken = "a3d75755df7cdbb39f3f23934bcd7ff49e10c05e777f2f0b02b5e8c48ddb3249e44d1e5e15602c29a9a43b65aa9c5871";
             break;
         case "naturalizer":
-            freshAddressSiteToken = "e2743066837eb7db2e535752817c4708723135d56f8c7386a4f21e7eb40af7e58d93d10bc5281edb0d26d0a82aee473d";
+            freshAddressSiteToken = "603f6235207568991ea95ca0eb63355433847c620f1ab0dec5399dd2fb2db8fcb677d006be9b7dfff53fde82128d4031";
             break;
         case "ryka":
-            freshAddressSiteToken = "4b22bf2fbc97b26b16bf3390f222cd97a250789d67431a2bc32ca1940731b0a7";
+            freshAddressSiteToken = "26c383b4b0fc4919bd86a9da3c493028b0df541d6049578659bf866581f04f7139a996aab01b169be9e61a8b506ebc13";
             break;
         case "viaspiga":
-            freshAddressSiteToken = "b0973ad0a8b01a0a375fbe388d5fc96f0ed7cfeec8b1e936807d8283d59f1df7";
+            freshAddressSiteToken = "360fc2e287deca97c05b60d81d016d223a798e6cc150830785e2dd916e5bac46d546a8954caec596c45e7f3a7df97b56";
             break;
         default:
             break;
