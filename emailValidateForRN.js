@@ -38,7 +38,6 @@ if (!$.load_script) {
 var freshAddressSiteToken = undefined;
 (function() {
     var subDomain = window.location.origin.match(/http:\/\/(\w+)/)[1];
-    console.log(subDomain);
 
     switch(subDomain) {
         case "carlosshoes":
@@ -119,6 +118,7 @@ var freshAddressSiteToken = undefined;
             var nestCheck = $(base.grandSelector).parent().find('a[class*="submit"], a[class*="Submit"], a[id*="submit"], input[type="submit"], button[id*="submit"], button[class*="submit"]');
             if (grandCheck.length > 0) {
               base.options.submitBtn = grandCheck.first();
+              base.options.submitBtn.attr("disabled", "true");
             } else if (nestCheck.length > 0) {
               base.options.submitBtn = nestCheck.first();
             } else if (/local/.test(window.location.href)) {
@@ -224,6 +224,9 @@ var freshAddressSiteToken = undefined;
             base.reset();
           }
         });
+
+        var $optinCheckbox = $("<input type='checkbox' id='email-optin'><label for='email-optin'>Email Opt-in</label>");
+        base.$el.after($optinCheckbox);
 
         /* VALIDATION AND DISPLAY FUNCTION */
         if (!window[base.options.callback]) {
@@ -386,7 +389,6 @@ var freshAddressSiteToken = undefined;
               rtc_timeout: 1200//,
               //ref: base.options.source
             }).then(function(x) {
-                console.log(x.getResponse().EMAIL);
               var FA = {
                 FA_VALID: 'yes',
                 FA_EMAIL: x.getResponse().EMAIL,
@@ -454,6 +456,7 @@ var freshAddressSiteToken = undefined;
       };
 
       base.success = function() {
+        console.log("submitURL: " + base.options.submitURL);
         if (!base.options.submitURL) {
           base.seturl();
         } // SET URL
@@ -497,6 +500,7 @@ var freshAddressSiteToken = undefined;
         }
 
         var url = !base.options.useCase ? base.options.submitURL + sibsURL + '&s_email_status_id=100&s_reg_source=' + base.options.source : base.options.submitURL += encodeURIComponent(JSON.stringify(sibsURL));
+        console.log(url);
 
         if (jQuery.inArray(base.$el.val(), base.sentEmail) < 0) {
           base.sentEmail.push(base.$el.val());
@@ -535,6 +539,7 @@ var freshAddressSiteToken = undefined;
             url = url.replace(/http:\/\/f\.[^\.]+\.[^\/]+/, 'https://activity.conversen.com').replace('http:', 'https:');
           }
 
+
           $(iframe).attr('src', url).css({
             position: 'absolute',
             width: '1px',
@@ -557,12 +562,13 @@ var freshAddressSiteToken = undefined;
       };
 
       base.seturl = function() {
+        console.log("seturl ran");
         var tests = [{
-          exp: /naturalizer\.com/i,
+          exp: /naturalizer/i,
           url: 'http://f.naturalizer.com/ats/post.aspx?cr=100070&fm=94&s_email_address_sp4_status_id=',
           salesforce: base.buildSalesforceURL('nat0usaengwelcomedefault01')
         }, {
-          exp: /bzees\.com/i,
+          exp: /bzees/i,
           url: '',
           salesforce: base.buildSalesforceURL('bze0usaengwelcomedefault01')
         }, {
@@ -609,6 +615,7 @@ var freshAddressSiteToken = undefined;
         for (i in tests) {
           if (tests[i].exp.test(window.location.href)) {
             if (base.options.useCase) {
+              console.log("Salesforce URL built");
               base.options.submitURL = tests[i].salesforce;
             } else {
               base.options.submitURL = tests[i].url;
