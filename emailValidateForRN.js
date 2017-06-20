@@ -118,7 +118,7 @@ var freshAddressSiteToken = undefined;
             var nestCheck = $(base.grandSelector).parent().find('a[class*="submit"], a[class*="Submit"], a[id*="submit"], input[type="submit"], button[id*="submit"], button[class*="submit"]');
             if (grandCheck.length > 0) {
               base.options.submitBtn = grandCheck.first();
-              base.options.submitBtn.attr("disabled", "true");
+              base.options.submitBtn.prop("disabled", true);
             } else if (nestCheck.length > 0) {
               base.options.submitBtn = nestCheck.first();
             } else if (/local/.test(window.location.href)) {
@@ -215,13 +215,19 @@ var freshAddressSiteToken = undefined;
         base.$el.blur(function() {
           if ((base.$el.val().length > 0 && !base.options.exp.test(base.$el.val())) || (base.$el.val().length == 0 && base.submitted)) {
             if(base.$el.val() === base.options.placeholder || base.$el.val() === base.options.successMsg) {
+              base.options.submitBtn.prop("disabled", true);
               base.reset();
             }
             else {
+              base.options.submitBtn.prop("disabled", true);
               base.displayError();
             }
           } else {
+            base.options.submitBtn.prop("disabled", true);
             base.reset();
+          }
+          if(base.options.exp.test(base.$el.val())) {
+            base.options.submitBtn.prop("disabled", false);
           }
         });
 
@@ -539,15 +545,17 @@ var freshAddressSiteToken = undefined;
             url = url.replace(/http:\/\/f\.[^\.]+\.[^\/]+/, 'https://activity.conversen.com').replace('http:', 'https:');
           }
 
-
-          $(iframe).attr('src', url).css({
-            position: 'absolute',
-            width: '1px',
-            height: '1px',
-            overflow: 'hidden',
-            visibility: 'hidden'
-          });
-          $('body').append(iframe);
+          //only submit to Salesforce if the User opts in
+          if($("#email-optin")[0].checked === true) {
+            $(iframe).attr('src', url).css({
+              position: 'absolute',
+              width: '1px',
+              height: '1px',
+              overflow: 'hidden',
+              visibility: 'hidden'
+            });
+            $('body').append(iframe);
+            }
         }
         base.reset(true);
         if (base.options.successMsg) {
