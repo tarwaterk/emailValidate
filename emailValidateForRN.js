@@ -128,12 +128,12 @@ var freshAddressSiteToken = undefined;
         }
 
         // Placeholder
-        if (typeof(jQuery.support.placeholder) === 'undefined') {
+        /*if (typeof(jQuery.support.placeholder) === 'undefined') {
           jQuery.support.placeholder = (function() {
             var i = document.createElement('input');
             return 'placeholder' in i;
           })();
-        }
+        }*/
 
         var sibInputs = $(base.grandSelector + ' input[type="text"]').filter(function() {
           return typeof($(this).attr('placeholder')) !== 'undefined';
@@ -231,6 +231,7 @@ var freshAddressSiteToken = undefined;
           }
         });
 
+        //create email opt-in checkbox and place on page next to email input
         var $optinCheckbox = $("<input type='checkbox' id='email-optin'><label for='email-optin'>Email Opt-in</label>");
         base.$el.after($optinCheckbox);
 
@@ -557,7 +558,7 @@ var freshAddressSiteToken = undefined;
             $('body').append(iframe);
             }
         }
-        base.reset(true);
+        //base.reset(true);
         if (base.options.successMsg) {
           base.$el.val(base.options.successMsg);
         }
@@ -664,7 +665,7 @@ var freshAddressSiteToken = undefined;
         base.grandSelector = grandSelector;
         base.cssSelector = grandSelector + ' ' + parSelector;
 
-        base.grandSelector = ".rnPageContent";
+        base.grandSelector = ".rn_PageContent";
       };
 
       base.setText = function() {
@@ -695,7 +696,7 @@ var freshAddressSiteToken = undefined;
       fontColor: '#ffffff',
       fontSize: false,
       errorClass: 'error',
-      placeholder: 'Email Address',
+      placeholder: '',
       enterAddressMessage: 'Please enter your address.',
       invalidAddressMessage: ' is not a valid address.',
       suggest: 'Did you mean ',
@@ -703,7 +704,7 @@ var freshAddressSiteToken = undefined;
       register: '',
       typo: '',
       iconSrc: window.location.origin.match(/https?:\/\/\w+/) + '.com/Content/core/email/warning.png',
-      successMsg: 'Thanks for signing up!',
+      successMsg: '',
       timeout: 3000,
       submitURL: false,
       submitBtn: false,
@@ -729,7 +730,7 @@ var freshAddressSiteToken = undefined;
         key: 's_name_last',
         saleskey: 'Lname'
       }, {
-        exp: /zip/i,
+        exp: /postalcode/i,
         key: 's_home_zipcode',
         saleskey: 'Zip'
       }, {
