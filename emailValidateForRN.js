@@ -77,7 +77,6 @@ var freshAddressSiteToken = undefined;
 
 (function($) {
   if (!jQuery().emailValidate) {
-      console.log("emailValidate initialized");
     $.emailValidate = function(el, options) {
       var base = this;
       base.$el = $(el);
@@ -113,8 +112,8 @@ var freshAddressSiteToken = undefined;
             base.options.submitBtn = btnCheck.first();
           } else {
             //below is a special grandCheck for CSR RightNow portal
-            var grandCheck = $(".rn_PageContent").find('a[class*="submit"], a[class*="Submit"], a[id*="submit"], input[type="submit"], button[type="submit"], button[id*="submit"], button[class*="submit"]');
-            //var grandCheck = $(base.grandSelector).find('a[class*="submit"], a[class*="Submit"], a[id*="submit"], input[type="submit"], button[id*="submit"], button[class*="submit"]');
+            var grandCheck = $(".rn_PageContent, #rn_PageContent").find('a[class*="submit"], a[class*="Submit"], a[id*="submit"], input[type="submit"], button[type="submit"], button[id*="submit"], button[class*="submit"]');
+            //end special grandCheck for CSR RightNow portal
             var nestCheck = $(base.grandSelector).parent().find('a[class*="submit"], a[class*="Submit"], a[id*="submit"], input[type="submit"], button[id*="submit"], button[class*="submit"]');
             if (grandCheck.length > 0) {
               base.options.submitBtn = grandCheck.first();
@@ -126,14 +125,6 @@ var freshAddressSiteToken = undefined;
             }
           }
         }
-
-        // Placeholder
-        /*if (typeof(jQuery.support.placeholder) === 'undefined') {
-          jQuery.support.placeholder = (function() {
-            var i = document.createElement('input');
-            return 'placeholder' in i;
-          })();
-        }*/
 
         var sibInputs = $(base.grandSelector + ' input[type="text"]').filter(function() {
           return typeof($(this).attr('placeholder')) !== 'undefined';
@@ -463,7 +454,6 @@ var freshAddressSiteToken = undefined;
       };
 
       base.success = function() {
-        console.log("submitURL: " + base.options.submitURL);
         if (!base.options.submitURL) {
           base.seturl();
         } // SET URL
@@ -507,7 +497,6 @@ var freshAddressSiteToken = undefined;
         }
 
         var url = !base.options.useCase ? base.options.submitURL + sibsURL + '&s_email_status_id=100&s_reg_source=' + base.options.source : base.options.submitURL += encodeURIComponent(JSON.stringify(sibsURL));
-        console.log(url);
 
         if (jQuery.inArray(base.$el.val(), base.sentEmail) < 0) {
           base.sentEmail.push(base.$el.val());
@@ -571,7 +560,6 @@ var freshAddressSiteToken = undefined;
       };
 
       base.seturl = function() {
-        console.log("seturl ran");
         var tests = [{
           exp: /naturalizer/i,
           url: 'http://f.naturalizer.com/ats/post.aspx?cr=100070&fm=94&s_email_address_sp4_status_id=',
@@ -605,6 +593,14 @@ var freshAddressSiteToken = undefined;
           url: 'http://f.fergieshoes.com/ats/post.aspx?cr=100073&fm=92&s_email_address_sp9_status_id=',
           salesforce: base.buildSalesforceURL('fer0usaengwelcomedefault01')
         }, {
+          exp: /francosarto/i,
+          url: 'http://f.francosarto.com/ats/post.aspx?cr=100073&fm=92&s_email_address_sp9_status_id=', //may be incorrect, but should never be used anyway
+          salesforce: base.buildSalesforceURL('fra0UsaEngWelcomeDefault')
+        }, {
+          exp: /georgebrownbilt/i,
+          url: 'http://f.georgebrownbilt.com/ats/post.aspx?cr=100073&fm=92&s_email_address_sp9_status_id=', //may be incorrect, but should never be used anyway
+          salesforce: base.buildSalesforceURL('gbb0UsaEngWelcomeDefault')
+        }, {
           exp: /lifestride/i,
           url: 'http://f.lifestride.com/ats/post.aspx?cr=100074&fm=93&s_email_address_sp8_status_id=',
           salesforce: base.buildSalesforceURL('lif0usaengwelcomedefault01')
@@ -624,7 +620,6 @@ var freshAddressSiteToken = undefined;
         for (i in tests) {
           if (tests[i].exp.test(window.location.href)) {
             if (base.options.useCase) {
-              console.log("Salesforce URL built");
               base.options.submitURL = tests[i].salesforce;
             } else {
               base.options.submitURL = tests[i].url;
@@ -665,7 +660,8 @@ var freshAddressSiteToken = undefined;
         base.grandSelector = grandSelector;
         base.cssSelector = grandSelector + ' ' + parSelector;
 
-        base.grandSelector = ".rn_PageContent";
+        // sets grandSelector for custhelp.com pages
+        base.grandSelector = ".rn_PageContent, #rn_PageContent";
       };
 
       base.setText = function() {
@@ -711,7 +707,7 @@ var freshAddressSiteToken = undefined;
       validation: false,
       validationError: false,
       success: false,
-      source: "custhelp",
+      source: "CUSTHELP",
       partnerid: '',
       baseCSSel: false,
       souceAppend: false,
