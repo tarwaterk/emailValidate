@@ -1,0 +1,1 @@
+- put email optin checkbox below 2nd email input
