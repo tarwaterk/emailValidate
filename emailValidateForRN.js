@@ -36,39 +36,50 @@ if (!$.load_script) {
 }
 
 var freshAddressSiteToken = undefined;
+var rnCheckboxMarkup = "";
 (function() {
     var subDomain = window.location.origin.match(/http:\/\/(\w+)/)[1];
 
     switch(subDomain) {
         case "carlosshoes":
             freshAddressSiteToken = "9a788c121f6414882c4221f546e229d683e0ae4629ed5fbd205814cb3f16dc2d1537a9a2a14f04560fc0600f481237da";
+            rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Yes! Sign me up to receive special offers via email. View <a href='http://www.carlosshoes.com/en-US/Content/Privacy.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         case "bzees":
             freshAddressSiteToken = "c75801a7242935012229300c391f340be1906710d8bcc26a2b8cc09843e452bc34959c1dd598bf34004c47330171a216";
+            rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Yes! I want to receive emails to stay in the know. View <a href='http://www.bzees.com/en-US/Content/Privacy.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         case "drschollsshoes": 
             freshAddressSiteToken = "8c3f387c1253c4c23df03d27102e95aeeede24cdde454d1e993893b5fe9d252283391492500accf06e8321cd0295e6c7"; //this is not a drschollsshoes.custhelp.com token
+            rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Keep in touch, sign up for email newsletters and special offers. View <a href='http://www.drschollsshoes.com/en-US/Content/PRIVACY.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         case "fergieshoes":
             freshAddressSiteToken = "ad3c58305b56a5cf114e09c534c59887b89da12067d6d088a3b0e5084f9ecd1e184501c3a48f2062ae204d46acacc492";
+            rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Receive the latest news and special offers via email. View <a href='http://www.fergieshoes.com/en-US/Content/privacy.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         case "francosarto":
             freshAddressSiteToken = "e4df592a10fc33ff2fbc522392299827c416f51deec8a1b2aa4f2eba92ac2bae057fc1dc3099aff70fede506ac9c9814";
+            rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Yes, I want to find out first about new arrivals, special offers and style inspirazione via email. View <a href='http://www.francosarto.com/en-US/Content/Privacy.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         case "georgebrownbilt":
             freshAddressSiteToken = "e01cf489c3c491fc435e790cfcacf984d0e0d7616a3f45bd5fa803a9e2d955563c0c4ea45f18fb94ade242478d8793c8";
+            rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Yes! I want to find out first about new arrivals, special offers and style inspiration via email. View <a href='http://www.georgebrownbilt.com/en-US/Content/Privacy.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         case "lifestride":
             freshAddressSiteToken = "a3d75755df7cdbb39f3f23934bcd7ff49e10c05e777f2f0b02b5e8c48ddb3249e44d1e5e15602c29a9a43b65aa9c5871";
+            rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Yes! Sign me up to receive the latest news and exclusive offers via email. View <a href='http://www.lifestride.com/en-US/Content/Privacy.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         case "naturalizer":
             freshAddressSiteToken = "603f6235207568991ea95ca0eb63355433847c620f1ab0dec5399dd2fb2db8fcb677d006be9b7dfff53fde82128d4031";
+            rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Yes! Sign me up for eclub to receive exclusive savings, offers, e-newsletters and more , see full eclub <a href='http://www.naturalizer.com/eclubsignup#terms' target='_blank' style='text-decoration:underline;'>terms & conditions</a>. View <a href='http://www.naturalizer.com/en-US/Content/privacy.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         case "ryka":
             freshAddressSiteToken = "26c383b4b0fc4919bd86a9da3c493028b0df541d6049578659bf866581f04f7139a996aab01b169be9e61a8b506ebc13";
+            rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Yes! Sign me up to receive the latest news and exclusive offers via email. View <a href='http://www.ryka.com/en-US/Content/privacy.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         case "viaspiga":
             freshAddressSiteToken = "360fc2e287deca97c05b60d81d016d223a798e6cc150830785e2dd916e5bac46d546a8954caec596c45e7f3a7df97b56";
+            rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Yes, sign me up to receive exclusive updates and offers via email. View <a href='http://www.viaspiga.com/en-US/Content/privacy.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         default:
             break;
@@ -222,9 +233,9 @@ var freshAddressSiteToken = undefined;
           }
         });
 
-        //create email opt-in checkbox and place on page next to email input
-        var $optinCheckbox = $("<input type='checkbox' id='email-optin'><label for='email-optin'>Email Opt-in</label>");
-        base.$el.after($optinCheckbox);
+        //create email opt-in checkbox and place on page below second email input
+        var $optinCheckbox = $(rnCheckboxMarkup);
+        $(".rn_Email:eq(1)").after($optinCheckbox);
 
         /* VALIDATION AND DISPLAY FUNCTION */
         if (!window[base.options.callback]) {
