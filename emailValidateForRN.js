@@ -47,7 +47,7 @@ var freshAddressSiteToken = undefined;
             freshAddressSiteToken = "c75801a7242935012229300c391f340be1906710d8bcc26a2b8cc09843e452bc34959c1dd598bf34004c47330171a216";
             break;
         case "drschollsshoes": 
-            freshAddressSiteToken = "d9e0af18fb75120f3171290fe0aa9691582b7a505565855ed9b27aa2f79c55d05320852e943d56fca33a20218f1d1bc8"; //this is not a drschollsshoes.custhelp.com token
+            freshAddressSiteToken = "8c3f387c1253c4c23df03d27102e95aeeede24cdde454d1e993893b5fe9d252283391492500accf06e8321cd0295e6c7"; //this is not a drschollsshoes.custhelp.com token
             break;
         case "fergieshoes":
             freshAddressSiteToken = "ad3c58305b56a5cf114e09c534c59887b89da12067d6d088a3b0e5084f9ecd1e184501c3a48f2062ae204d46acacc492";
