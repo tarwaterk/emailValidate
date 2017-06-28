@@ -50,7 +50,7 @@ var rnCheckboxMarkup = "";
             rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Yes! I want to receive emails to stay in the know. View <a href='http://www.bzees.com/en-US/Content/Privacy.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         case "drschollsshoes": 
-            freshAddressSiteToken = "8c3f387c1253c4c23df03d27102e95aeeede24cdde454d1e993893b5fe9d252283391492500accf06e8321cd0295e6c7"; //this is not a drschollsshoes.custhelp.com token
+            freshAddressSiteToken = "8c3f387c1253c4c23df03d27102e95aeeede24cdde454d1e993893b5fe9d252283391492500accf06e8321cd0295e6c7";
             rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Keep in touch, sign up for email newsletters and special offers. View <a href='http://www.drschollsshoes.com/en-US/Content/PRIVACY.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
         case "fergieshoes":
