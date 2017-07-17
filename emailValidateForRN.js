@@ -49,7 +49,7 @@ var rnCheckboxMarkup = "";
             freshAddressSiteToken = "c75801a7242935012229300c391f340be1906710d8bcc26a2b8cc09843e452bc34959c1dd598bf34004c47330171a216";
             rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Yes! I want to receive emails to stay in the know. View <a href='http://www.bzees.com/en-US/Content/Privacy.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
-        case "drschollsshoes": 
+        case "drschollshoes": 
             freshAddressSiteToken = "8c3f387c1253c4c23df03d27102e95aeeede24cdde454d1e993893b5fe9d252283391492500accf06e8321cd0295e6c7";
             rnCheckboxMarkup = "<input type='checkbox' id='email-optin'><label for='email-optin' style='width:90%;display:inline-table;'>Keep in touch, sign up for email newsletters and special offers. View <a href='http://www.drschollsshoes.com/en-US/Content/PRIVACY.aspx' target='_blank' style='text-decoration:underline;'>privacy policy</a>.</label>";
             break;
@@ -453,6 +453,9 @@ var rnCheckboxMarkup = "";
       }
 
       base.buildSalesforceURL = function(key) {
+        if(window.location.href.match(/drschollshoes/i)) {
+          base.options.salesBase = 'http://www.drschollsshoes.com/webservices/salesforce.asmx/Welcome?to=';
+        }
         return base.options.salesBase + base.$el.val() + '&key=' + key + '&attributes=';
       }
 
@@ -592,7 +595,7 @@ var rnCheckboxMarkup = "";
           url: 'http://f.carlosshoes.com/ats/post.aspx?cr=100071&fm=90&s_email_address_sp7_status_id=',
           salesforce: base.buildSalesforceURL('car0usaengwelcomedefault01')
         }, {
-          exp: /drschollsshoes/i,
+          exp: /drschollshoes/i,
           url: 'http://f.drschollsshoes.com/ats/post.aspx?cr=100072&fm=91&s_email_address_sp5_status_id=',
           salesforce: base.buildSalesforceURL('drs0usaengwelcomedefault01')
         }, {
