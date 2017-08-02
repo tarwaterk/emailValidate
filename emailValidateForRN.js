@@ -613,7 +613,7 @@ var rnCheckboxMarkup = "";
         }, {
           exp: /georgebrownbilt/i,
           url: 'http://f.georgebrownbilt.com/ats/post.aspx?cr=100073&fm=92&s_email_address_sp9_status_id=', //may be incorrect, but should never be used anyway
-          salesforce: base.buildSalesforceURL('gbb0UsaEngWelcomeDefault')
+          salesforce: base.buildSalesforceURL('gbb-welcome-online')
         }, {
           exp: /lifestride/i,
           url: 'http://f.lifestride.com/ats/post.aspx?cr=100074&fm=93&s_email_address_sp8_status_id=',
